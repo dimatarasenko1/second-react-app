@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 
 class Flat extends Component {
-  url = () => {
-    const attrs = this.props;
-    const { imageUrl } = attrs.data;
-    return imageUrl;
+  shouldComponentUpdate(nextProps) {
+    const { active } = this.props;
+    return nextProps.active !== active;
   }
 
   handleClick = (event) => {
@@ -12,6 +11,12 @@ class Flat extends Component {
     const { data, changeActive } = this.props;
     const { name } = data;
     changeActive(name);
+  }
+
+  url = () => {
+    const attrs = this.props;
+    const { imageUrl } = attrs.data;
+    return imageUrl;
   }
 
   render() {
