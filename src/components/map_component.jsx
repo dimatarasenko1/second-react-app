@@ -13,12 +13,11 @@ class MapComponent extends Component {
     zoom: 12
   };
 
-  constructor(props) {
-    super(props);
-  }
-
   render() {
-    const activeFlat = this.props.active;
+    const activeFlat = this.props.activeFlat;
+    if (activeFlat !== []) {
+      console.log(activeFlat.length)
+    }
     return (
       <div className="map-container">
         <GoogleMapReact
@@ -26,7 +25,7 @@ class MapComponent extends Component {
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
          >
-          { activeFlat ? <MapMarker lng={activeFlat.lng} lat={activeFlat.lat} /> : null }
+         { activeFlat.length > 0 ? <MapMarker lng={activeFlat[0].lng} lat={activeFlat[0].lat} /> : null }
         </GoogleMapReact>
       </div>
     );
