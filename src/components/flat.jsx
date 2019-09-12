@@ -2,17 +2,22 @@ import React, { Component } from 'react';
 
 class Flat extends Component {
   url = () => {
-    return this.props.data.imageUrl;
+    const attrs = this.props;
+    const { imageUrl } = attrs.data;
+    return imageUrl;
   }
 
   handleClick = (event) => {
     event.preventDefault();
-    this.props.changeActive(this.props.data.name);
+    const { data, changeActive } = this.props;
+    const { name } = data;
+    changeActive(name);
   }
 
   render() {
+    const { active } = this.props;
     let classes = "card";
-    if (this.props.active) {
+    if (active) {
       classes += " card active";
     }
     const cardStyle = {

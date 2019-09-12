@@ -13,10 +13,10 @@ class App extends Component {
   }
 
   getActiveFlat = () => {
-    let result = flats.filter((flat) => {
-      return flat.name === this.state.activeFlat;
+    const { activeFlat } = this.state;
+    const result = flats.filter((flat) => {
+      return flat.name === activeFlat;
     });
-    console.log(result);
     return result;
   }
 
@@ -27,9 +27,10 @@ class App extends Component {
   }
 
   render() {
+    const { activeFlat } = this.state;
     return (
       <div>
-        <FlatList flats={flats} activeFlat={this.state.activeFlat} changeActive={this.changeActive} />
+        <FlatList flats={flats} activeFlat={activeFlat} changeActive={this.changeActive} />
         <MapComponent activeFlat={this.getActiveFlat()} />
       </div>
     );

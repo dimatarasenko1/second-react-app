@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class MapMarker extends Component {
-  render() {
-    return (
-      <div className="marker"></div>
-    );
-  }
-}
+const MapMarker = () => {
+  return (
+    <div className="marker" />
+  );
+};
 
 export default MapMarker;
